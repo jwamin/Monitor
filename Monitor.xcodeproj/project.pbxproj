@@ -21,6 +21,9 @@
 		57AAABC92B613E180049ED54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		57AAABCB2B613E180049ED54 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		57AAABCD2B613E180049ED54 /* Monitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Monitor.entitlements; sourceTree = "<group>"; };
+		57AAABD32B613E290049ED54 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		57AAABD42B654FC40049ED54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		57AAABD52B655C370049ED54 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +40,8 @@
 		57AAABB72B613E170049ED54 = {
 			isa = PBXGroup;
 			children = (
+				57AAABD52B655C370049ED54 /* .gitignore */,
+				57AAABD32B613E290049ED54 /* README.md */,
 				57AAABC22B613E170049ED54 /* Monitor */,
 				57AAABC12B613E170049ED54 /* Products */,
 			);
@@ -53,6 +58,7 @@
 		57AAABC22B613E170049ED54 /* Monitor */ = {
 			isa = PBXGroup;
 			children = (
+				57AAABD42B654FC40049ED54 /* Info.plist */,
 				57AAABC32B613E170049ED54 /* AppDelegate.h */,
 				57AAABC42B613E170049ED54 /* AppDelegate.m */,
 				57AAABC62B613E180049ED54 /* Assets.xcassets */,
@@ -278,8 +284,10 @@
 				DEVELOPMENT_TEAM = 3C42F7N9CQ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Monitor/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_LSBackgroundOnly = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -304,6 +312,9 @@
 				DEVELOPMENT_TEAM = 3C42F7N9CQ;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Monitor/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_LSBackgroundOnly = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
