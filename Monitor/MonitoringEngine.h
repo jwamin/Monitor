@@ -12,9 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MonitoringEngine : NSObject
 
 -(void) setup;
--(void) startMonitoring:(id)sender;
--(void) stopMonitoring:(id)sender;
--(BOOL) isMonitoring:(id __nullable)sender;
+-(void) startMonitoring;
+-(void) stopMonitoring;
+-(BOOL) isMonitoring;
+-(BOOL) toggleMonitoring;
 -(void) terminate;
 
 @end

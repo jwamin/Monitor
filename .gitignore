@@ -2,3 +2,5 @@
 /Monitor.xcodeproj/xcuserdata
 
 *.mp3
+
+/dist/**

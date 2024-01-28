@@ -10,14 +10,14 @@
 
 @interface AppDelegate ()
 
-@property (strong) IBOutlet NSWindow *window;
-@property (strong) NSStatusItem *item;
 @property (strong) MonitoringEngine *monitoring;
 
 @end
 
 
-@implementation AppDelegate
+@implementation AppDelegate {
+    NSStatusItem *mainItem;
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
@@ -26,13 +26,12 @@
     
     
     NSStatusBar *bar = [NSStatusBar systemStatusBar];
-    _item = [bar statusItemWithLength:NSVariableStatusItemLength];
-    [[_item button] setImage: [NSImage imageWithSystemSymbolName:@"hifispeaker" accessibilityDescription:NULL]];
+    mainItem = [bar statusItemWithLength:NSVariableStatusItemLength];
+    [[mainItem button] setImage: [NSImage imageWithSystemSymbolName:@"hifispeaker" accessibilityDescription:NULL]];
     
-    [[_item button] setTitle:@"Monitor"];
-    [[[_item button] cell] setHighlighted:YES];
+    [[[mainItem button] cell] setHighlighted:YES];
     
-    [_item setMenu:[self getMenu]];
+    [mainItem setMenu:[self getMenu]];
     
     [_monitoring setup];
     
@@ -60,13 +59,20 @@
 
 -(void) toggleMonitoring:(NSMenuItem*)sender {
     
-    BOOL isMonitoring = [_monitoring isMonitoring:NULL];
-    if (isMonitoring) {
-        [_monitoring stopMonitoring:sender];
-    } else {
-        [_monitoring startMonitoring:sender];
-    }
-    NSControlStateValue final = [_monitoring isMonitoring:NULL] ? NSControlStateValueOn : NSControlStateValueOff;
+    BOOL isMonitoring = [_monitoring toggleMonitoring];
+    
+    [self updateStatusBarUI:isMonitoring fromSender:sender];
+
+}
+
+-(void) updateStatusBarUI:(BOOL)isMonitoring fromSender:(NSMenuItem*)sender {
+    [[mainItem button] setImage: [NSImage imageWithSystemSymbolName: (isMonitoring) ? @"hifispeaker.fill" : @"hifispeaker" accessibilityDescription:NULL] ];
+    
+    //Update Menu Item
+    //[[mainItem button] setTitle: isMonitoring ? @"Stop Monitoring" : @"Start Monitoring"];
+    
+    NSControlStateValue final = isMonitoring ? NSControlStateValueOn : NSControlStateValueOff;
+    
     [sender setState:final];
 }
 

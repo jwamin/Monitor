@@ -68,7 +68,7 @@
     NSLog(@"next mixer bus: %lu",nextBus);
 }
 
-- (void)startMonitoring:(id)sender{
+- (void)startMonitoring{
     
     NSError *error;
     [engine prepare];
@@ -86,13 +86,26 @@
    
 }
 
-- (void)stopMonitoring:(id)sender {
+- (void)stopMonitoring {
     
     [engine stop];
     
 }
 
--(BOOL)isMonitoring:(id)sender{
+-(BOOL) toggleMonitoring {
+    
+    BOOL isMonitoring = [self isMonitoring];
+    if (isMonitoring) {
+        [self stopMonitoring];
+    } else {
+        [self startMonitoring];
+    }
+    
+    return [self isMonitoring];
+
+}
+
+-(BOOL)isMonitoring{
     return engine.isRunning;
 }
 
