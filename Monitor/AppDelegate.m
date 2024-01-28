@@ -40,28 +40,29 @@
     NSLog(@"%@",engine.outputNode);
     NSLog(@"nodes: %@",engine.attachedNodes);
     
-    player = [[AVAudioPlayerNode alloc] init];
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"thefly" withExtension:@"mp3"];
+//    player = [[AVAudioPlayerNode alloc] init];
+//    NSURL *url = [[NSBundle mainBundle] URLForResource:@"thefly" withExtension:@"mp3"];
+//    
+//    NSError *fileError;
+//    AVAudioFile *file = [[AVAudioFile alloc] initForReading:url error:&fileError];
     
-    NSError *fileError;
-    AVAudioFile *file = [[AVAudioFile alloc] initForReading:url error:&fileError];
+//    if (fileError != NULL){
+//        NSLog(@"%@",fileError);
+//    }
+//    
+//    NSLog(@"%@",file);
+//   
+//    [engine attachNode:player];
+//    [engine connect:player to:engine.mainMixerNode format:file.processingFormat];
     
-    if (fileError != NULL){
-        NSLog(@"%@",fileError);
-    }
-    
-    NSLog(@"%@",file);
-   
-    [engine attachNode:player];
-    [engine connect:player to:engine.mainMixerNode format:file.processingFormat];
-    
-    [player scheduleFile:file atTime:nil completionHandler:^{
-            NSLog(@"file loaded");
-    }];
-    
-//    [engine connect:engine.inputNode to:engine.mainMixerNode format:NULL];
-//    [engine connect:engine.mainMixerNode to:engine.outputNode format:NULL];
+//    [player scheduleFile:file atTime:nil completionHandler:^{
+//            NSLog(@"file loaded");
+//    }];
 //
+    
+    [engine connect:engine.inputNode to:engine.mainMixerNode format:NULL];
+    //[engine connect:engine.mainMixerNode to:engine.outputNode format:NULL];
+
 //    [[engine mainMixerNode] installTapOnBus:0 bufferSize:4068 format:NULL block:^(AVAudioPCMBuffer * _Nonnull buffer, AVAudioTime * _Nonnull when) {
 //            NSLog(@"Buffer %3.0f",[buffer floatChannelData]);
 //    }];
