@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		57AAABC52B613E170049ED54 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 57AAABC42B613E170049ED54 /* AppDelegate.m */; };
 		57AAABC72B613E180049ED54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57AAABC62B613E180049ED54 /* Assets.xcassets */; };
-		57AAABCA2B613E180049ED54 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57AAABC82B613E180049ED54 /* MainMenu.xib */; };
 		57AAABCC2B613E180049ED54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 57AAABCB2B613E180049ED54 /* main.m */; };
+		57AAABD82B65813D0049ED54 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57AAABD62B65813D0049ED54 /* MainMenu.xib */; };
+		57AAABDA2B658FA40049ED54 /* thefly.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57AAABD92B658FA30049ED54 /* thefly.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,12 +19,13 @@
 		57AAABC32B613E170049ED54 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		57AAABC42B613E170049ED54 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		57AAABC62B613E180049ED54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		57AAABC92B613E180049ED54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		57AAABCB2B613E180049ED54 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		57AAABCD2B613E180049ED54 /* Monitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Monitor.entitlements; sourceTree = "<group>"; };
 		57AAABD32B613E290049ED54 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		57AAABD42B654FC40049ED54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		57AAABD52B655C370049ED54 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		57AAABD72B65813D0049ED54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		57AAABD92B658FA30049ED54 /* thefly.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = thefly.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +60,14 @@
 		57AAABC22B613E170049ED54 /* Monitor */ = {
 			isa = PBXGroup;
 			children = (
+				57AAABD62B65813D0049ED54 /* MainMenu.xib */,
 				57AAABD42B654FC40049ED54 /* Info.plist */,
 				57AAABC32B613E170049ED54 /* AppDelegate.h */,
 				57AAABC42B613E170049ED54 /* AppDelegate.m */,
 				57AAABC62B613E180049ED54 /* Assets.xcassets */,
-				57AAABC82B613E180049ED54 /* MainMenu.xib */,
 				57AAABCB2B613E180049ED54 /* main.m */,
 				57AAABCD2B613E180049ED54 /* Monitor.entitlements */,
+				57AAABD92B658FA30049ED54 /* thefly.mp3 */,
 			);
 			path = Monitor;
 			sourceTree = "<group>";
@@ -126,8 +129,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57AAABDA2B658FA40049ED54 /* thefly.mp3 in Resources */,
 				57AAABC72B613E180049ED54 /* Assets.xcassets in Resources */,
-				57AAABCA2B613E180049ED54 /* MainMenu.xib in Resources */,
+				57AAABD82B65813D0049ED54 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,10 +150,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		57AAABC82B613E180049ED54 /* MainMenu.xib */ = {
+		57AAABD62B65813D0049ED54 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				57AAABC92B613E180049ED54 /* Base */,
+				57AAABD72B65813D0049ED54 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -285,9 +289,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Monitor/Info.plist;
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_LSBackgroundOnly = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone please";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -313,10 +318,10 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Monitor/Info.plist;
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_LSBackgroundOnly = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Microphone please";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
