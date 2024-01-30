@@ -17,6 +17,8 @@
 
 @implementation AppDelegate {
     NSStatusItem *mainItem;
+    NSMenuItem *mainMenuItem;
+    NSMenuItem *monitoringRow;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
@@ -35,17 +37,21 @@
     
     [_monitoring setup];
     
+    [self updateStatusBarUI:NO fromSender:mainMenuItem];
+    
 }
 
 -(NSMenu*) getMenu{
     
     NSMenu *monitorMenu = [[NSMenu alloc] init];
     
-    NSMenuItem *isMonitoring = [[NSMenuItem alloc] initWithTitle:@"Is Monitoring" action:@selector(toggleMonitoring:) keyEquivalent:@"M"];
+    mainMenuItem = [[NSMenuItem alloc] initWithTitle:@"Is Monitoring" action:@selector(toggleMonitoring:) keyEquivalent:@"M"];
     
-    [isMonitoring setEnabled:TRUE];
+    [mainMenuItem setEnabled:TRUE];
     
-    [monitorMenu insertItem:isMonitoring atIndex:0];
+    [monitorMenu insertItem:mainMenuItem atIndex:0];
+    
+    monitoringRow = [[NSMenuItem alloc] initWithTitle:@"Monitoring Enabled" action:NULL keyEquivalent:@""];
     
     NSMenuItem *quit = [[NSMenuItem alloc] initWithTitle:@"Quit" action:NULL keyEquivalent:@"Q"];
     [quit setTarget:[NSApplication sharedApplication]];
@@ -66,14 +72,23 @@
 }
 
 -(void) updateStatusBarUI:(BOOL)isMonitoring fromSender:(NSMenuItem*)sender {
+    
+    //Update Main Icon
     [[mainItem button] setImage: [NSImage imageWithSystemSymbolName: (isMonitoring) ? @"hifispeaker.fill" : @"hifispeaker" accessibilityDescription:NULL] ];
     
-    //Update Menu Item
-    //[[mainItem button] setTitle: isMonitoring ? @"Stop Monitoring" : @"Start Monitoring"];
     
+    //Update Menu Items
     NSControlStateValue final = isMonitoring ? NSControlStateValueOn : NSControlStateValueOff;
     
-    [sender setState:final];
+    if (isMonitoring) {
+        [[mainItem menu] insertItem:monitoringRow atIndex:0];
+    } else {
+        if ([[[mainItem menu] itemArray] containsObject:monitoringRow])
+            [[mainItem menu] removeItem:monitoringRow];
+    }
+    [monitoringRow setState:final];
+    
+    [mainMenuItem setTitle: isMonitoring ? @"Stop Monitoring" : @"Start Monitoring"];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
