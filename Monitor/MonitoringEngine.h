@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MonitoringEngine : NSObject
+@protocol JSSYMonitoring <NSObject>
 
 -(void) setup;
 -(void) startMonitoring;
@@ -19,5 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void) terminate;
 
 @end
+
+@interface MonitoringEngine: NSObject<JSSYMonitoring> @end
 
 NS_ASSUME_NONNULL_END
